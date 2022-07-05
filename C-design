@@ -1,0 +1,27 @@
+# C-Curriculum-design
+## The item consists of these points: 
+### head:  display.h  parse.h  loadfonts.h
+### main.c  display.c parse.c loadfonts.c
+
+
+//main.c
+#include <stdio.h>
+#include "display.h"
+#include "parse.h"
+#include "loadfonts.h"
+
+
+
+int main(int argc,char *argv[]){
+    ///align,width,message
+    int width;
+    char align;
+    char message[100];
+
+    parse(argc,argv,&align,&width,message);
+    loadfonts();
+    display(align,width,message);
+
+}
+
+//
