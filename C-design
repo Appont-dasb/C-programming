@@ -24,6 +24,11 @@ int main(int argc,char *argv[]){
 
 }
 
+
+
+//display.h
+void display(char align,int width,char message[]) ;
+
 //display.c
 #include "loadfonts.h"
 #include <string.h>
@@ -84,6 +89,9 @@ char *split(char *start,int width){
     return --p;
 }
 
+
+//parse.h
+void parse(int argc,char *argv[],char *align,int *width,char message[]);
 
 //parse.c
 
