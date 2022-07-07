@@ -131,4 +131,14 @@ void parse(int argc ,char *argv[],char *align,int *width,char message[]){
 }
 
 
+//loadfonts.h
+struct font{
+    char img[5][50];
+    int width;
+    char c;
 
+};
+void loadfonts();
+struct font getfont(char c);
+
+//loadfonts.c
