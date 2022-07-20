@@ -1,5 +1,17 @@
 
 game.h
+#define ROW 10
+#define COL 10
+
+#include<stdio.h>
+//声明
+void Initboard(char board[ROW][COL], int row, int col);
+
+void Displayboard(char board[ROW][COL], int row, int col);
+
+
+
+game.c
 #define _CRT_SECURE_NO_WARNINGS 1
 #include"game.h"
 
@@ -17,6 +29,7 @@ void Initboard(char board[ROW][COL], int row, int col)
 	}
 
 }
+
 
 //下面例子不具有普适性，只能用于打印3x3的格子
 //打印定义
@@ -64,9 +77,6 @@ void Displayboard(char board[ROW][COL], int row, int col)
 		}
 	}
 }
-
-
-game.c
 
 
 test.c
