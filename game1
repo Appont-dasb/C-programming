@@ -64,3 +64,55 @@ void Displayboard(char board[ROW][COL], int row, int col)
 		}
 	}
 }
+
+
+game.c
+
+
+test.c
+#define _CRT_SECURE_NO_WARNINGS 1
+
+#include"game.h"
+void menu ()
+{
+	printf("*************************\n");
+	printf("***** 1.play 0.exit *****\n");
+	printf("*************************\n");
+}
+//游戏的整个算法实现
+void game()
+{
+	//数组 - 存放走出的棋盘信息
+	char board [ROW][COL] = {0};//全部空格
+	//初始化
+	Initboard(board, ROW, COL);
+	//打印
+	Displayboard(board, ROW, COL);
+
+}
+
+int main()
+{
+	int choice = 0;
+	do
+	{
+	menu();
+	printf("请选择:>\n");
+	scanf("%d",&choice);
+
+	switch(choice)
+	{
+	case 1:
+		game();
+		break;
+	case 0:
+		printf("退出程序\n");
+		break;
+	default:
+		printf("输入错误，请重新输入\n");
+		break;
+	}
+	}while(choice);
+
+	return 0;
+}
