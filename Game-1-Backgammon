@@ -2,7 +2,7 @@
 game.h
 
 #define ROW 3
-#define COL 3
+#define COL 3 //定义ROW COL的原因：如要改动row col时，在这里改动即可，否则需要改动的太多
 
 #include<stdio.h>
 
