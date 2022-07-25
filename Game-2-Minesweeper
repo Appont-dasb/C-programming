@@ -87,27 +87,34 @@ void menu()
 
 void game()
 {
-	//存储雷的信息
-	char mine[ROWS][COLS] = { 0 };//初始化
-	//排查雷的信息
+	//1. 存储雷的信息
+	char mine[ROWS][COLS] = { 0 };//  11*11
+	//2. 排查雷的信息
 	char show[ROWS][COLS] = { 0 };
 	//初始化
 	InitBoard(mine , ROWS, COLS, '0');
 
 	InitBoard(show , ROWS, COLS, '*');
 	//打印棋盘
-	DisplayBoard(mine, ROW, COL);
+
+	//棋盘的存储信息不打印
+	//DisplayBoard(mine, ROW, COL);
 	
 	DisplayBoard(show, ROW, COL);
 	//布置雷
 	SetMine(mine, ROW, COL);
+	DisplayBoard(mine, ROW, COL);
 	//扫雷
+	FindMine(mine, show, ROW, COL);
+
 
 }
 
 void test()
 {
 	int input = 0 ;
+	srand((unsigned int ) time(NULL));
+
 	do
 	{
 		menu();
