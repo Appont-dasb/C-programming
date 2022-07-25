@@ -1,4 +1,5 @@
-  🎃🎃🎃
+ 
+ 🎃🎃🎃
  game.h
 #define ROW 9
 #define COL 9
@@ -6,7 +7,7 @@
 #define ROWS ROW+2
 #define COLS COL+2
 
-#define EASY_COUNT 10
+#define EASY_COUNT 10 //定义10
 
 #include<stdio.h>
 #include<stdlib.h>
@@ -18,7 +19,7 @@ void DisplayBoard(char board[ROWS][COLS], int row, int col);
 
 void SetMine(char board[ROWS][COLS], int row, int col);
 
-void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col);
+void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col);//这里需要两个数组✨
 
 
 
@@ -36,7 +37,7 @@ void InitBoard(char board[ROWS][COLS],int rows, int cols, char set)
 	{
 		for(j=0 ; j < cols ; j++)
 		{
-			board[i][j] = set; //'*'
+			board[i][j] = set; //✨
 		}
 	}
 }
@@ -45,7 +46,7 @@ void DisplayBoard(char board[ROWS][COLS], int row, int col)
 {
 	int i = 0 ;
 	int j = 0 ;
-	//打印列号
+	//打印列号，坐标轴可能有问题✨
 	for(i=0 ; i <= col; i++)
 	{
 		printf("%d ",i);
@@ -88,7 +89,7 @@ int get_mine_count(char mine[ROWS][COLS], int x, int y)
 		mine[x+1][y] +
 		mine[x-1][y-1] +
 		mine[x][y-1] +
-		mine[x+1][y-1] - 8 * '0';
+		mine[x+1][y-1] - 8 * '0'; //这里'0'是字符，-8*'0'等同- 8*0的ASCII值
 }
 
 void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
@@ -97,16 +98,16 @@ void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
 	int y = 0;
 	int win = 0 ;
 	//9*9 - 10 = 71
-	while(win < row * col - EASY_COUNT)
+	while(win < row * col - EASY_COUNT) //循环结束的条件，得走71步，或是踩雷✨ //展开功能的使用！
 	{
-		//坐标是否合法
+		
 		printf("请输入排查雷的坐标:>");
 		scanf("%d%d", &x, &y);
-		if(x >=1 && x <= row && y >= 1 && y <= col)
+		if(x >=1 && x <= row && y >= 1 && y <= col) //坐标是否合法
 		{
 			if(mine[x][y] == '1') //是雷
 			{
-				printf("defeat!\n");
+				printf("Defeat!\n");
 				DisplayBoard(mine, row, col);
 				break ;
 			}
@@ -114,7 +115,7 @@ void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
 			{
 				//计算(x,y)位置周围有几个雷
 				int count = get_mine_count(show, row,  col);
-				show[x][y] = count + '0' ; //这里是+ ！！！
+				show[x][y] = count + '0' ; //这里是+ ！！！✨
 				DisplayBoard(show, row, col);
 				win ++ ;
 			}
@@ -126,24 +127,12 @@ void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
      }
 	if(win == row * col - EASY_COUNT)
 	{
-		printf("victory!\n");
+		printf("Victory!\n");
 		DisplayBoard(mine, row, col);
 	}
 }
 
 //展开功能的时候 - 递归
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -176,11 +165,12 @@ void game()
 
 	//棋盘的存储信息不打印
 	//DisplayBoard(mine, ROW, COL);
-	
 	DisplayBoard(show, ROW, COL);
+	
 	//布置雷
 	SetMine(mine, ROW, COL);
-	DisplayBoard(mine, ROW, COL);
+	//DisplayBoard(mine, ROW, COL);
+	
 	//扫雷
 	FindMine(mine, show, ROW, COL);
 
