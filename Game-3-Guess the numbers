@@ -1,0 +1,17 @@
+//简单的猜数字游戏
+//涉及time函数和rand随机值函数
+#include<stdio.h>
+#include<stdlib.h>
+#include<time.h>
+void menu()
+{
+	printf("*************************************\n");
+	printf("****  1.start game  2.exit game  ****\n");
+	printf("*************************************\n");
+}
+
+ 
+    //#define RAND_MAX 0x7fff //-0x开头为十六进制数，值为7fff，十进制为32767
+    
+    //time_t time(time_t *timer)
+    //time_t
